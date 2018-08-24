@@ -1,0 +1,15 @@
+@mixin flexScreen($input) {
+    flex:1 0 $input !important;
+    max-width: $input;
+}
+@mixin textprop($fontSize,$fontColor) {
+    text-align: $text-align;
+    font-weight:  $font-weight;
+    text-decoration: none;
+    white-space: normal;
+    color:$fontColor;
+    font-size: $fontSize; 
+}
+@mixin flexDirection($input) {
+    flex-direction:$input;
+}

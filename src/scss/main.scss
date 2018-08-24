@@ -1,0 +1,141 @@
+@import "~bootstrap/scss/bootstrap";
+@import "_variable.scss";
+@import "_mixin.scss";
+@import "_nav.scss";
+$bg-red:rgba(60.00%, 3.53%, 3.53%, 0.88);
+
+body{
+    overflow-x: hidden;
+    background: #f1e5e5;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#movieDetail{
+    background-image: radial-gradient(circle at 20% 50%, rgba(76.08%, 17.25%, 17.65%, 0.98) 0%,$bg-red 100%);
+}
+.modal-dialog{
+    max-width: 850px;
+}
+.modalDetailContainer {
+    .release_date {
+        opacity: 0.6;
+        font-size: 1.7em;
+    }
+    ul{
+        list-style: none;
+        .nav-item{
+            font-size: 14px;
+            padding: 2px 0;
+        }
+        .nav-item:hover{
+            a{
+             color:$bg-red;
+            }
+        }
+        .nav-item:last-child,.nav-item:last-child:hover{
+            border:0;
+            background: none;
+        }
+    }
+    
+    a{
+        color: $white;
+    }
+}
+.movieContainer:hover{
+  cursor: pointer;
+}
+.section-heading{
+    font-size: 25px;
+    border-bottom: 2px double lightcoral;
+}
+.section-content{
+    width: 98%;
+}
+.footer-section{
+    background: #20b2aa;
+}
+.footer-box-section{
+    border-right: 2px dashed grey;
+}
+.footer-box-section:last-child{
+    border:none;
+}
+/* media query for bleo 900 px*/
+@media (max-width:900px){
+    .footer-box-section{
+        @include flexScreen(95%);
+        border-right:none;
+        border-bottom: 2px dashed grey;
+    }
+    .footer-section{
+        align-items:center;
+        @include flexDirection(column !important);
+    }
+}
+/*::-webkit-scrollbar {
+    width: 0px; 
+    background: transparent; 
+} optional: just make scrollbar invisible */
+.section-arrow{
+    @include flexScreen(3%);
+}
+.section-middile{
+    @include flexScreen(94%);
+}
+
+/* Absolute Center Spinner */
+.loading {
+    position: fixed;
+    z-index: 999;
+    height: 2em;
+    width: 2em;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  
+  /* Transparent Overlay */
+  .loading:before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+  }
+  
+  /* :not(:required) hides these rules from IE9 and below */
+  .loading:not(:required) {
+    font: 0/0 a;
+    color: transparent;
+    text-shadow: none;
+    background: transparent;
+    border: 0;
+  }
+  
+  .loading:not(:required):after {
+    content: '';
+    display: block;
+    font-size: 10px;
+    width: 1em;
+    height: 1em;
+    margin-top: -0.5em;
+    animation: spinner 1500ms infinite linear;
+    border-radius: 0.5em;
+    box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+  }
+  
+  @keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+    /* spinner end here */

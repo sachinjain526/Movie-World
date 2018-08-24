@@ -1,0 +1,40 @@
+.social-link li{
+    display: inline-block;
+    width: 37px;
+    border-radius: 50%;
+    margin-right: 5px;
+    padding: 4px;
+    @include textprop(20px, $white);
+}
+.login-link a{
+    display: block;
+    width: auto;
+    border:  1px solid #777;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    padding:.5rem 1rem;
+    @include textprop(16px, $link-color);
+
+    i{
+        @include textprop(20px, $white);
+        width: 37px;
+        padding: 4px 2px;
+        display:inline-block;
+        border-radius: 50%;
+    }
+}
+.social-link li:nth-child(1),.login-link li:nth-child(1) i{
+    background: #3b5998 ;
+    }
+    .social-link li:nth-child(2),.login-link li:nth-child(2) i{ 
+        background: #00aced ;
+    }
+    .social-link li:nth-child(3),.login-link li:nth-child(3) i{
+        background: #bb0000   ;
+    }
+    .social-link li:nth-child(4){
+        background: #007bb6 ;
+    }
+    .social-link li:nth-child(5){ 
+        background: #cb2027 ;
+    }

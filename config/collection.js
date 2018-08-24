@@ -1,0 +1,20 @@
+module.exports = {
+    action: [],
+    adventure: [],
+    animation: [],
+    comedy: [],
+    crime: [],
+    documentary: [],
+    drama: [],
+    family: [],
+    fantasy: [],
+    history: [],
+    horror: [],
+    music: [],
+    mystery: [],
+    romance: [],
+    sciFi: [],
+    thriller: [],
+    war: [],
+    western: []
+}

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Movies Cruiser</title>
+    <link rel="shortcut icon" type="image/png" href="./app/assets/favicon.ico" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Movie Cruiser</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active" id="leftNavBar">
+                    <a class="nav-link" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" id="rightNavBar">
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <div class="main-pages" id="homePage">
+            <section class="containr">
+                <div class="jumbotron text-center">
+                    <h1 class="  w-25 mx-auto my-2 section-heading text-dark font-weight-bold">Search Movie</h1>
+                    <form class="form my-2 my-lg-0">
+                        <input class="form-control mx-auto p-4 w-75" type="search" placeholder="Search Movie.." aria-label="Search" id="movieSearchInput"
+                            required>
+                        <div class="my-4">
+                            <button class="btn btn-outline-success" type="button" id="movieSearchButton">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+            <section id="searchedMovies" class="contianer-fluid text-center d-none">
+                <h1 class="  w-25 mx-auto my-2 section-heading text-dark font-weight-bold">Searched Movies List</h1>
+                <div class="m-auto section-content d-flex align-items-center">
+                    <div class="col-md-1 section-arrow">
+                        <button id="searchedMoviesScrolltoLeft" type="button" class="p-1 btn  btn-outline-dark">
+                            <i class="fa fa-angle-double-left"></i>
+                        </button>
+                    </div>
+                    <div id="searchedMoviesContainer" class="d-flex section-middile" style="overflow-x: auto" pageNumber="1" moveName="">
+
+                    </div>
+                    <div class="col-md-1 section-arrow">
+                        <button id="searchedMoviesScrolltoRight" type="button" class="p-1 btn btn-outline-dark">
+                            <i class="fa fa-angle-double-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <section id="topMovies" class="contianer-fluid ">
+                <h1 class="text-center w-25 mx-auto my-2 section-heading text-dark font-weight-bold">Top Movies</h1>
+                <div class="m-auto section-content d-flex align-items-center">
+                    <div class="col-md-1 section-arrow">
+                        <button id="topMoviesScrolltoLeft" type="button" class="p-1 btn  btn-outline-dark">
+                            <i class="fa fa-angle-double-left"></i>
+                        </button>
+                    </div>
+                    <div id="topMoviesContainer" class="d-flex section-middile" style="overflow-x: auto" pageNumber="1">
+
+                    </div>
+                    <div class="col-md-1 section-arrow">
+                        <button id="topMoviesScrolltoRight" type="button" class="p-1 btn btn-outline-dark">
+                            <i class="fa fa-angle-double-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <section id="userCollection" class="contianer-fluid d-none">
+                <h1 class="text-center  w-25 mx-auto my-2 section-heading text-dark font-weight-bold">User Collection</h1>
+                <div class="d-flex section-content  text-center" style="overflow-x: auto" id="userCollectionContainer">
+                    <h4 class="text-dark font-weight-bold p-5 text-center w-100" id="noRecoredFound">No User Collection</h4>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer class="text-center pb-3 mt-2">
+        <div class="contianer-fuild mt-3 mx-1 d-flex rounded footer-section">
+            <div class="col-4 p-3 footer-box-section">
+                <section>
+                    <h3>Subscribe Us</h3>
+                    <form action="/" method="post" class="form-inline" id="subscribeForm">
+                        <label for="EmailAdd" aria-label="Email address"></label>
+                        <input type="email" name="EmailAdd" id="EmailAdd" placeholder="Email" class="form-control w-75 mx-auto">
+                        <button type="submit" class="btn btn-primary w-50 mx-auto my-2 p-2">Submit</button>
+                    </form>
+                </section>
+            </div>
+            <div class="col-4 p-3 footer-box-section">
+                <h3>Contact Us</h3>
+                <p>
+                    <strong>Mob: +91 9035430402</strong>
+                </p>
+                <p>
+                    <strong>Email: sachinjain516@gmail.com</strong>
+                </p>
+                <address>
+                    #2239 buliding virgo, bagmane constalation tach park,doodenakundi, Near Marathalli,Bangalore-560030
+                </address>
+            </div>
+            <div class="col-4 p-3 footer-box-section">
+                <h3>Follow Us</h3>
+                <ul class="social-link mt-5">
+                    <li>
+                        <i class="fab fa-facebook-f"></i>
+                    </li>
+                    <li>
+                        <i class="fab fa-twitter"></i>
+
+                    </li>
+                    <li>
+                        <i class="fab fa-google-plus-g"></i>
+                    </li>
+                    <li>
+                        <i class="fab fa-linkedin-in"></i>
+                    </li>
+                    <li>
+                        <i class="fab fa-pinterest-p"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright my-2">
+            <strong> Copyright &copy; 2018 -Movies Cruiser</strong>
+        </div>
+    </footer>
+<script type="text/javascript" src="bundle.js"></script></body>
+
+</html>
