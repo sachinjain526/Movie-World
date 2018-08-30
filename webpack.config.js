@@ -41,8 +41,7 @@ module.exports = {
       // Font-awesome 4.7.X
       {
         test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-        loader: 'file-loader?name=fonts/[name].[ext]',
-        include: [/font-awesome/],
+        loader: 'file-loader?name=fonts/[name].[ext]'
       },
       {
         test: /\.(png|jpg|gif)$/,
