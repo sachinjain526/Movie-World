@@ -32,7 +32,7 @@ function getFullMovieDetails(MovieRefId, showMovieDetails, collectionName) {
 function getCollectionTypes(callback) {
     fetchDatFromApi('https://api.themoviedb.org/3/genre/movie/list?api_key=e423c3150a1dbc6ec70f9322a432eb28&language=en-US', callback);
 }
-function getSearchedMovie(movieName, pageNumber, callback) {
+function getSearchedMovie(pageNumber, callback, movieName) {
     fetchDatFromApi(`https://api.themoviedb.org/3/search/movie?api_key=7520477c96fad381a44633a2b7596a01&language=en-US&query=${movieName}&page=${pageNumber}&include_adult=false`, callback);
 }
 // saving data to collection

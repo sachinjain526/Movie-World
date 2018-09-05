@@ -98,33 +98,24 @@ function checkUserLoggedIn() {
 
 
 // scrolling function
-function scrollHorizontally(containerId, moveTO, nextCall, serached) {
-    const sectionElem = jQuery(containerId);
+function scrollHorizontally(containerId, moveTO, movieApiCall) {
+    const sectionElem = jQuery(`#${containerId}`);
     const currentScroll = parseInt(sectionElem.scrollLeft(), 10);
     const width = Math.floor(sectionElem.outerWidth());
     const { scrollWidth } = sectionElem.get(0);
     if (moveTO === 'next') {
         sectionElem.animate({ scrollLeft: currentScroll + 800 }, 800);
-    } else {
-        sectionElem.animate({ scrollLeft: currentScroll - 800 }, 800);
-    }
-    if (nextCall) {
         if (scrollWidth - currentScroll === width) {
             const pagenumber = parseInt(sectionElem.attr('pagenumber'), 10) + 1;
             const userDataFlag = localStorage.getItem('loggedUserInfo');
-            if (serached) {
-                const movieName = sectionElem.attr('moveName');
-                getSearchedMovie(movieName, pagenumber, (data) => {
-                    createTopMoviesList('searchedMoviesContainer', data, userDataFlag);
-                });
-            } else {
-                getMovieRecords(pagenumber, (data) => {
-                    createTopMoviesList('topMoviesContainer', data, userDataFlag);
-                });
-            }
-
+            const movieName = sectionElem.attr('moveName');
+            movieApiCall(pagenumber, (data) => {
+                createTopMoviesList(containerId, data, userDataFlag);
+            }, movieName);
             sectionElem.attr('pagenumber', pagenumber);
         }
+    } else {
+        sectionElem.animate({ scrollLeft: currentScroll - 800 }, 800);
     }
 }
 function eventListener() {
@@ -135,16 +126,16 @@ function eventListener() {
         openLoginModelPopup();
     });
     jQuery('#topMoviesScrolltoRight').click(() => {
-        scrollHorizontally('#topMoviesContainer', 'next', true);
+        scrollHorizontally('topMoviesContainer', 'next', getMovieRecords);
     });
     jQuery('#topMoviesScrolltoLeft').click(() => {
-        scrollHorizontally('#topMoviesContainer', 'prev');
+        scrollHorizontally('topMoviesContainer', 'prev');
     });
     jQuery('#searchedMoviesScrolltoRight').click(() => {
-        scrollHorizontally('#searchedMoviesContainer', 'next', true, true);
+        scrollHorizontally('searchedMoviesContainer', 'next', getSearchedMovie);
     });
     jQuery('#searchedMoviesScrolltoLeft').click(() => {
-        scrollHorizontally('#searchedMoviesContainer', 'prev');
+        scrollHorizontally('searchedMoviesContainer', 'prev');
     });
     jQuery(document).on('click', '.collectionButton', function () {
         const movieId = jQuery(this).attr('movieId');
@@ -163,10 +154,10 @@ function eventListener() {
     jQuery('body').on('click', '#movieSearchButton', () => {
         const movieName = jQuery('#movieSearchInput').val();
         jQuery('#searchedMoviesContainer').html('').attr('moveName', movieName);
-        getSearchedMovie(movieName, 1, (data) => {
+        getSearchedMovie(1, (data) => {
             const userDataFlag = localStorage.getItem('loggedUserInfo');
             createTopMoviesList('searchedMoviesContainer', data, userDataFlag);
-        });
+        }, movieName);
         jQuery('#searchedMovies').removeClass('d-none');
     });
     jQuery(document).on('click', '#closeModal', function () {
